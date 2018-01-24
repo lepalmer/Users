@@ -1,0 +1,141 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="python">
+  <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Code &#8212; BurstCube Documentation 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Project" href="project.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-simGenerator">
+<span id="code"></span><h1>Code<a class="headerlink" href="#module-simGenerator" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="simGenerator.createSourceString">
+<code class="descclassname">simGenerator.</code><code class="descname">createSourceString</code><span class="sig-paren">(</span><em>config</em>, <em>energy</em>, <em>angle</em><span class="sig-paren">)</span><a class="headerlink" href="#simGenerator.createSourceString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a source file from a configurator object and a specific
+angle and energy.</p>
+</dd></dl>
+
+<span class="target" id="module-runSims"></span><p>Probably not useful in other cases...</p>
+<p>Author: Jeremy Perkins (<a class="reference external" href="mailto:jeremy&#46;s&#46;perkins&#37;&#52;&#48;nasa&#46;gov">jeremy<span>&#46;</span>s<span>&#46;</span>perkins<span>&#64;</span>nasa<span>&#46;</span>gov</a>)</p>
+<hr class="docutils" />
+<dl class="function">
+<dt id="runSims.makeLinks">
+<code class="descclassname">runSims.</code><code class="descname">makeLinks</code><span class="sig-paren">(</span><em>files</em>, <em>folderName='SimFiles'</em><span class="sig-paren">)</span><a class="headerlink" href="#runSims.makeLinks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to make links in directories.  Probably not useful.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="runSims.runRevan_star">
+<code class="descclassname">runSims.</code><code class="descname">runRevan_star</code><span class="sig-paren">(</span><em>files</em><span class="sig-paren">)</span><a class="headerlink" href="#runSims.runRevan_star" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert <cite>f([1,2])</cite> to <cite>f(1,2)</cite> call.</p>
+</dd></dl>
+
+<span class="target" id="module-bcSim"></span><span class="target" id="module-plotSim"></span><span class="target" id="module-analyze_source"></span><p>Date: February 17, 2017
+Usage Examples:
+import analyze_source
+#make get effective area for a list of sim files
+analyze_source.getAeff('sim/FarFieldPointSource_*Cos1.0*.sim',triggers=10000,r_sphere=300)
+#This returns 3 arrays: energy, aeff and costh</p>
+<p>#plot effective area vs. energy with or without GBM data!
+analyze_source.plotAeff('sim/FarFieldPointSource_*Cos1.0*.sim',WithGBM=True,save=True)</p>
+<p>#plot effective area vs. angle
+analyze_source.plotAeffVsAngle('sim/FarFieldPointSource_100.000keV_Cos*.sim',save=True)</p>
+<hr class="docutils" />
+<dl class="function">
+<dt id="analyze_source.getDetailsFromFilename">
+<code class="descclassname">analyze_source.</code><code class="descname">getDetailsFromFilename</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#analyze_source.getDetailsFromFilename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to get the energy and angle from a filename.
+Really should be meta data.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="analyze_source.getSphere">
+<code class="descclassname">analyze_source.</code><code class="descname">getSphere</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#analyze_source.getSphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to get the radius of the surrounding sphere from a geometery file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="analyze_source.sourceToDict">
+<code class="descclassname">analyze_source.</code><code class="descname">sourceToDict</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#analyze_source.sourceToDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn source file into a dictionary</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="project.html" title="previous chapter">Project</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/code.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Noah Kasmanoff.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.0b1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/code.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
