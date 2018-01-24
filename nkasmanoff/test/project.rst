@@ -1,4 +1,4 @@
-Welcome to First Doc's documentation!
+Project
 =====================================
 
 This is the project page

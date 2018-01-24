@@ -12,6 +12,8 @@ Requirements:
 
 My project depends on nothing!
 
+Contents:
+
 .. toctree::
    :maxdepth: 2
 

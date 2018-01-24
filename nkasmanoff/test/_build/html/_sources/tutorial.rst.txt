@@ -1,4 +1,4 @@
-this is a short tutorial:
+tutorial
 =========================
 
 done!
