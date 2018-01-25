@@ -7,7 +7,12 @@ from os import path
 def createSourceString(config, energy, angle):
 
     '''Creates a source file from a configurator object and a specific
-    angle and energy.'''
+    angle and energy.
+
+    config: the .yaml file used
+    energy:
+    angle:  
+    '''
 
     from utils import getFilenameFromDetails
 

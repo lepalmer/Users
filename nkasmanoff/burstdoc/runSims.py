@@ -1,13 +1,12 @@
 #!/usr/bin/env python
 """
-------------------------------------------------------------------------
+runsims.py
+
 A script that runs an analysis chain on a multicore system.
 
 Probably not useful in other cases...
 
 Author: Jeremy Perkins (jeremy.s.perkins@nasa.gov)
-
-------------------------------------------------------------------------
 """
 
 import os
@@ -15,7 +14,7 @@ import os
 from utils import setPath
 
 def runCosima(srcFile):
-
+    '''this runs cosima '''
     import subprocess
     import gzip
 
