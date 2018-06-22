@@ -1,0 +1,214 @@
+Name My_BurstCube
+Verision 0.0
+
+SurroundingSphere 50.0 0.0 0.0 0.0 50.0
+Include $MEGALIB/resource/examples/geomega/materials/Materials.geo
+
+// The Mother Volume of the Detector Configuration:
+Volume WorldVolume
+WorldVolume.Material Vacuum
+WorldVolume.Visibility 0
+WorldVolume.Color 0
+WorldVolume.Shape BRIK 50. 50. 50.
+WorldVolume.Mother 0
+
+
+//This is the CsI Detector
+Include CalorimeterCSIProperties.det
+
+//This builds the Al housing
+Volume AlHousing
+AlHousing.Material Aluminium
+AlHousing.Shape BRIK 5.3 5.3 0.975
+AlHousing.Position 0.0 0.0 0.04
+AlHousing.Color 923
+AlHousing.Visibility 1
+AlHousing.Mother WorldVolume
+
+//This builds the hollow section of the Al housing to
+// turn it into a shell
+Volume Hollow
+Hollow.Material Vacuum
+Hollow.Shape BRIK 5.15 5.15 0.9
+Hollow.Position 0.0 0.0 -0.075
+Hollow.Color 1
+Hollow.Visibility 1
+Hollow.Mother AlHousing
+
+// This builds the epoxy between the Al housing and the Al cap
+Volume Epoxy1
+Epoxy1.Material Epoxy
+Epoxy1.Shape BRIK 5.15 5.15 0.86
+Epoxy1.Position 0.0 0.0 -0.025
+Epoxy1.Color 2
+Epoxy1.Visibility 1
+Epoxy1.Mother Hollow
+
+
+//This builds the external part of the Al Cap
+Volume Cap
+Cap.Material Aluminium
+Cap.Shape BRIK 5.1 5.1 0.835
+Cap.Position 0.0 0.0 0.0
+Cap.Color 4
+Cap.Visibility 1
+Cap.Mother Epoxy1
+
+//This builds the hollow section of the cap
+Volume CapHollow
+CapHollow.Material Vacuum
+CapHollow.Shape BRIK 5.05 5.05 0.785
+CapHollow.Position 0.0 0.0 -0.025
+CapHollow.Color 1
+CapHollow.Visibility 1
+CapHollow.Mother Cap
+
+// This builds the epoxy between the Al cap and the optical window
+Volume Epoxy2
+Epoxy2.Material Vacuum
+Epoxy2.Shape BRIK 5.05 5.05 0.785
+Epoxy2.Position 0.0 0.0 -0.025
+Epoxy2.Color 1
+Epoxy2.Visibility 1
+Epoxy2.Mother Cap
+
+// This builds the hollow within the epoxy
+Volume EpoxyHollow
+EpoxyHollow.Material Vacuum
+EpoxyHollow.Shape BRIK 5.0 5.0 0.785
+EpoxyHollow.Position 0.0 0.0 0.0
+EpoxyHollow.Color 2
+EpoxyHollow.Visibility 2
+EpoxyHollow.Mother Epoxy2
+
+// Single brick of Scintillator CsI 
+//tech specs say it R=5.1, h=2.2 cm
+Volume CSIBrick
+CSIBrick.Material CsI
+CSIBrick.Visibility 1
+CSIBrick.Color 395
+CSIBrick.Shape BRIK 4.7 4.7 0.635
+CSIBrick.Position 0.0 0.0 0.15
+CSIBrick.Mother EpoxyHollow
+
+//This chunk is the window on bottom
+//the tech specs say quartz the window is modified to fit in the hole dim are R=//5.1, h=0.3 cm
+Volume GlassWindow
+GlassWindow.Material Glass
+GlassWindow.Shape BRIK 5.0 5.0 0.15
+GlassWindow.Position 0.0 0.0 -0.635
+GlassWindow.Color 593
+GlassWindow.Visibility 1
+GlassWindow.Mother EpoxyHollow
+
+// Build the volume to put the readouts in dim are R=4.5, h=0.22 cm
+Volume ReadOutDetectorVolume
+ReadOutDetectorVolume.Material Vacuum 
+ReadOutDetectorVolume.Shape BRIK 5.45 5.45 .315
+//ReadOutDetectorVolume.Rotation 25.0 -25.0 0.0
+ReadOutDetectorVolume.Position 0.0 0.0 -1.25
+ReadOutDetectorVolume.Color 4
+ReadOutDetectorVolume.Visibility 0
+ReadOutDetectorVolume.Mother WorldVolume
+
+// This is one of the SiPMs, +x +y
+Volume SiPM1
+SiPM1.Material Silicon
+SiPM1.Shape BRIK 0.75 0.75 0.115
+SiPM1.Position 2.225 2.225 -0.05
+SiPM1.Color 419
+SiPM1.Visibility 1
+SiPM1.Mother ReadOutDetectorVolume
+
+// This is one of the SiPMs, -x +y
+Volume SiPM2
+SiPM2.Material Silicon
+SiPM2.Shape BRIK 0.75 0.75 0.115
+SiPM2.Position -2.225 2.225 -0.05
+SiPM2.Color 419
+SiPM2.Visibility 1
+SiPM2.Mother ReadOutDetectorVolume
+
+// This is one of the SiPMs, -x -y
+Volume SiPM3
+SiPM3.Material Silicon
+SiPM3.Shape BRIK 0.75 0.75 0.115
+SiPM3.Position -2.225 -2.225 -0.05
+SiPM3.Color 419
+SiPM3.Visibility 1
+SiPM3.Mother ReadOutDetectorVolume
+
+// This is one of the SiPMs, +x -y
+Volume SiPM4
+SiPM4.Material Silicon
+SiPM4.Shape BRIK 0.75 0.75 0.115
+SiPM4.Position 2.225 -2.225 -0.05
+SiPM4.Color 419
+SiPM4.Visibility 1
+SiPM4.Mother ReadOutDetectorVolume
+
+// This is one of the adhesive strips, +x +y
+Volume Adhesive1
+Adhesive1.Material Silicone
+Adhesive1.Shape BRIK 0.75 0.75 0.05
+Adhesive1.Position 2.225 2.225 0.18
+Adhesive1.Color 4
+Adhesive1.Visibility 1
+Adhesive1.Mother ReadOutDetectorVolume
+
+// This is one of the adhesive strips, -x +y
+Volume Adhesive2
+Adhesive2.Material Silicone
+Adhesive2.Shape BRIK 0.75 0.75 0.05
+Adhesive2.Position -2.225 2.225 0.18
+Adhesive2.Color 4
+Adhesive2.Visibility 1
+Adhesive2.Mother ReadOutDetectorVolume
+
+// This is one of the adhesive strips, -x -y
+Volume Adhesive3
+Adhesive3.Material Silicone
+Adhesive3.Shape BRIK 0.75 0.75 0.05
+Adhesive3.Position -2.225 -2.225 0.18
+Adhesive3.Color 4
+Adhesive3.Visibility 1
+Adhesive3.Mother ReadOutDetectorVolume
+
+// This is one of the adhesive strips, +x -y
+Volume Adhesive4
+Adhesive4.Material Silicone
+Adhesive4.Shape BRIK 0.75 0.75 0.05
+Adhesive4.Position 2.225 -2.225 0.18
+Adhesive4.Color 4
+Adhesive4.Visibility 1
+Adhesive4.Mother ReadOutDetectorVolume
+
+
+//This chunk is the Si plane below the glass
+//the tech specs say Si in the Al Frame/hole dim are  R=4.5, h=0.020 cm
+//Slightly smaller than the circumfrence to avoid overlap
+//Volume SiPlane
+//SiPlane.Material Silicon
+//SiPlane.Shape BRIK 9.2 9.2 0.1
+//For the nominal thickness
+//SiPlane.Position 0.0 0.0 -0.35
+//SiPlane.Color 5
+//SiPlane.Visibility 1
+//SiPlane.Mother ReadOutDetectorVolume
+
+//This chunk is the G10 below the Si
+//the tech specs say dim are R=4.5, h=0.20 cm
+//Volume G10Plane
+//G10Plane.Material CircuitBoard
+//G10Plane.Shape TUBS 0.0 4.5 0.1 0.0 360.
+//G10Plane.Position 0.0 0.0 -0.75
+//G10Plane.Color 7
+//G10Plane.Visibility 1
+//G10Plane.Mother ReadOutDetectorVolume
+
+
+# Base Trigger
+Trigger MainTrigger
+MainTrigger.Veto false
+MainTrigger.TriggerByDetector true
+MainTrigger.Detector DCalCSI 1
