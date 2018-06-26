@@ -17,9 +17,9 @@ source:
 
 run:
   basename : test
-  srcdir : $BCTEST/new_kev
-  simdir : $BCTEST/new_kev
-  stdout_dir : /Users/isbrewer/GitHub/Simulation/new_kev_stdout
+  srcdir : $BCTEST
+  simdir : $BCTEST
+  stdout_dir : /Users/isbrewer/GitHub/Simulation/
   emin : 100.000
   emax : 300.000
   enumbins : 10
