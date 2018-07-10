@@ -1,0 +1,47 @@
+general:
+  Version : 1
+  Geometry : $BCTEST/BurstCube_1Cylinder.geo.setup
+  CheckForOverlaps : 1000 0.01
+  PhysicsListEM : Livermore
+  StoreCalibrate : true
+  StoreSimulationInfo : true
+  StoreOnlyEventsWithEnergyLoss : true 
+  DiscretizeHits : true
+
+source:
+  name : FFPS
+  NTriggers : 1000
+  Flux : 1000.0
+  ParticleType : 1
+  Beam : FarFieldPointSource
+
+run:
+  basename : test
+  srcdir : $BCTEST
+  simdir : $BCTEST
+  stdout_dir : /Users/isbrewer/GitHub/Simulation/
+  emin : 100.000
+  emax : 300.000
+  enumbins : 10
+  azmin : 45
+  azmax : 60
+  aznumbins : 1
+  zemin : 0
+  zemax : 90
+  zenumbins : 10
+
+  detector:
+  resolution :
+    energy :
+      - 40.
+      - 100.
+      - 662.
+      - 2000.
+      - 5000.
+    width :
+      - 5.
+      - 7.5
+      - 20.
+      - 33.
+      - 50.
+
